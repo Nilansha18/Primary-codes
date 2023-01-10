@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxval(vector<int>arr){
+int maxval(int arr){
     int m=arr[0];
     for (int i=0; i<arr.size(); i++){
         if(arr[i]>m) m=arr[i];
@@ -9,9 +9,9 @@ int maxval(vector<int>arr){
     return m;
 }
 
-void CountSort(vector<int>arr){
-    int max=maxval(arr);
-    vector<int>count(max+1 , 0);
+void CountSort(int arr){
+    int max=maxval(arr[]);
+    int count[max+1]={0};
     for(int i=0; i<(max+1) ;i++){
         count[arr[i]]++;
     }
@@ -19,7 +19,7 @@ void CountSort(vector<int>arr){
     for(int i=1; i<(max+1); i++){
         count[i]+=count[i-1];
     }
-    vector<int>k;
+    int k[arr.size()];
     for(int i=(arr.size() -1); i>=0;i-- ){
         k[--count[arr[i]]]=arr[i];
     }
@@ -31,13 +31,12 @@ void CountSort(vector<int>arr){
 
 int main(){
     int n,a, l,r;
-    vector<int> arr;
     cout<<"Enter the number of elements :";
     cin>>n;
+    int arr[n];
     for(int i=0; i<n; i++){
-        cin>>a;
-        arr.push_back(a);
-    }
+        cin>>arr[i];    
+        }
     
     CountSort(arr);
     for(int i=0; i<n; i++){
