@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void swap(vector<int>arr,int i, int j){
+void swap(int* arr,int i, int j){
     int temp=arr[i];
     arr[i]=arr[j];
     arr[j]=temp;
 }
 
-int partition(vector<int>arr, int l, int r){
+int partition(int* arr, int l, int r){
     int pi=arr[r];
     int i=l-1;
     for(int j=l; j<r; j++){
@@ -16,11 +16,11 @@ int partition(vector<int>arr, int l, int r){
             swap(arr,i,j);
         }
     }
-    swap(arr,i+1,pi);
+    swap(arr[],i+1,pi);
     return arr[i+1];
 }
 
-void QuickSort(vector<int>arr, int l, int r){
+void QuickSort(int* arr, int l, int r){
     
     if(l<r) {
         int pivot=partition(arr,l,r);
@@ -31,19 +31,18 @@ void QuickSort(vector<int>arr, int l, int r){
 
 int main(){
     int n,a, l,r;
-    vector<int> arr;
     cout<<"Enter the number of elements :";
     cin>>n;
+    int arr[n];
     for(int i=0; i<n; i++){
-        cin>>a;
-        arr.push_back(a);
+        cin>>arr[i];
     }
     
     cout<<"enter the index from which u want to quicksort the arr: ";
     cin>>l;
     cout<<"enter the index upto which u want to quicksort the arr: ";
     cin>>r;
-    QuickSort(arr,l,r);
+    QuickSort(arr[n],l,r);
     for(int i=0; i<n; i++){
         cout<<arr[i]<<" ";
     }
