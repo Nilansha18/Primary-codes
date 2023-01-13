@@ -7,12 +7,6 @@ void printArray(int A[], int n){
 	}
 	cout<<endl;
 }
-
-/**
- *Break the array into two parts
- * Sort both the parts separately
- * Merge both the sorted parts
- * */
  
 void mergeSortedParts(int A[], int start, int end, int mid){
 	int Ans[end-start+1];
